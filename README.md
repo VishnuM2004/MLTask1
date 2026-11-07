@@ -1,20 +1,94 @@
-# Iris multi-class classification benchmark
+# Iris Multi-Class Classification Benchmark
 
-Compares Logistic Regression and a Decision Tree on Scikit-Learn's built-in Iris dataset. The split is stratified 80/20 with a fixed random seed. The Logistic Regression model scales features with `StandardScaler` inside a pipeline, which prevents test-set information leaking into the scaler. Decision Trees do not require scaling, so that model uses the original measurements.
+## Project Overview
+This project compares two supervised machine learning algorithms, Logistic Regression and Decision Tree, using the built-in Iris dataset from Scikit-Learn.
 
-## Run in VS Code
+The objective is to evaluate and compare classification performance using standard machine learning evaluation metrics.
 
-Open this folder in VS Code. In its terminal, create and activate a virtual environment, install packages, then run the script:
+## Technologies Used
+- Python
+- Scikit-Learn
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+
+## Dataset
+The Iris dataset contains 150 samples belonging to three flower species:
+- Iris Setosa
+- Iris Versicolor
+- Iris Virginica
+
+It uses four input features:
+- Sepal Length
+- Sepal Width
+- Petal Length
+- Petal Width
+
+## Machine Learning Algorithms
+1. Logistic Regression – uses StandardScaler within a pipeline for feature scaling.
+2. Decision Tree Classifier – classifies samples using decision-based rules.
+
+## Methodology
+1. Load the Iris dataset.
+2. Split the dataset into 80% training and 20% testing using stratified sampling.
+3. Apply feature scaling for Logistic Regression.
+4. Train both classification models.
+5. Evaluate model performance.
+6. Generate confusion matrices and visualizations.
+
+## Evaluation Metrics
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- Confusion Matrix
+
+## Project Structure
+```text
+iris_classification/
+├── README.md
+├── classification_pipeline.py
+├── requirements.txt
+└── outputs/
+    ├── benchmark_metrics.csv
+    ├── iris_pairplot.png
+    ├── decision_tree_confusion_matrix.png
+    └── logistic_regression_confusion_matrix.png
+```
+
+## Installation and Execution
+
+Create a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+Activate it on Windows:
 
 ```powershell
-python -m venv .venv
 .\.venv\Scripts\Activate.ps1
+```
+
+Install dependencies:
+
+```bash
 python -m pip install -r requirements.txt
+```
+
+Run the project:
+
+```bash
 python classification_pipeline.py
 ```
 
-On macOS/Linux activate with `source .venv/bin/activate`.
+## Output
+The project generates:
+- Model performance comparison in CSV format.
+- Confusion matrices for both models.
+- Iris dataset pairplot visualization.
+- Classification reports.
 
-The script prints per-class reports and macro-averaged accuracy, precision, recall, and F1. It saves `benchmark_metrics.csv`, a pairplot, one confusion matrix per model, and `decision_boundaries.png` under the `outputs` folder.
-
-The decision boundary chart intentionally trains a second pair of models on petal length and petal width so the multi-class regions can be shown in two dimensions. Treat that chart as a visualization; the benchmark metrics use all four Iris features.
+## Conclusion
+This project demonstrates an end-to-end multi-class classification pipeline and compares Logistic Regression and Decision Tree algorithms using the Iris dataset.
